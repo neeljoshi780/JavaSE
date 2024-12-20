@@ -1,3 +1,21 @@
+// File Class
+
+import java.io.*;
+class Prog16
+{
+    public static void main(String[] args)throws IOException{
+        File f1=new File("student.txt");
+        //Create New File
+        f1.createNewFile();
+        System.out.println("Is Exists: "+f1.exists());
+        System.out.println("Length: "+f1.length());
+        System.out.println("Can File Write: "+f1.canWrite());
+        System.out.println("FileName: "+f1.getName());
+        f1.delete();
+    }
+}
+
+
 // Byte Stream.
 // FileInput Stream Class and FileOutputStream Class Use to File Read and Write.
 
