@@ -1,0 +1,40 @@
+import java.sql.*;
+
+public class JavaApplication6 {
+    public static void main(String[] args) {
+        // Database Connection Details
+        String url = "jdbc:mysql://localhost:3306/school";
+        String user = "root";
+        String password = "455445";
+
+        // SQL query to insert data
+        String studentData = "insert into student(name,dob,mobile) values(?,?,?)";
+
+        Connection con = null;
+        PreparedStatement psmt = null;
+
+        // Establish the Connection
+        try {
+            con = DriverManager.getConnection(url, user, password);
+
+            if (con != null) {
+                // Create a PreparedStatement
+                psmt = con.prepareStatement(studentData);
+
+                // Set the values for the placeholders in the query
+                psmt.setString(1, "Neel");
+                psmt.setString(2, "2004-08-10");
+                psmt.setLong(3, 8160062992L);
+
+                // Execute update
+                psmt.execute();
+
+                System.out.println("A new student was inserted successfully.");
+            } else {
+                System.out.println("Connection failed.!!");
+            }
+        } catch (Exception e) {
+            System.err.println("Error:" + e.getMessage());
+        }
+    }
+}
