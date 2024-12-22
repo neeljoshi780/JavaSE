@@ -13,8 +13,8 @@ public class JavaApplication6 {
         Connection con = null;
         PreparedStatement psmt = null;
 
-        // Establish the Connection
         try {
+            // Establish the Connection
             con = DriverManager.getConnection(url, user, password);
 
             if (con != null) {
