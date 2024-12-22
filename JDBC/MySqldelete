@@ -7,7 +7,7 @@ public class JavaApplication6 {
         String user = "root";
         String password = "455445";
 
-        // SQL query to update data
+        // SQL query to delete data
         String deleteQuery = "delete from student where id=?";
 
         Connection con = null;
