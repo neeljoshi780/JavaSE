@@ -22,4 +22,3 @@ public class JavaApplication6 {
             System.err.println("Error:" + e.getMessage());
         }
     }
-}
