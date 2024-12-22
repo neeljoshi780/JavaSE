@@ -8,7 +8,7 @@ public class JavaApplication6 {
         String password = "455445";
 
         // SQL query to insert data
-        String studentData = "insert into student(name,dob,mobile) values(?,?,?)";
+        String insertQuery = "insert into student(name,dob,mobile) values(?,?,?)";
 
         Connection con = null;
         PreparedStatement psmt = null;
@@ -19,7 +19,7 @@ public class JavaApplication6 {
 
             if (con != null) {
                 // Create a PreparedStatement
-                psmt = con.prepareStatement(studentData);
+                psmt = con.prepareStatement(insertQuery);
 
                 // Set the values for the placeholders in the query
                 psmt.setString(1, "Neel");
