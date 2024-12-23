@@ -1,0 +1,215 @@
+import java.sql.*;
+
+// Connection Provider Class.
+
+public class ConnectionProvider {
+
+    private static Connection con;
+
+    public static Connection getConnection() {
+        try {
+            if (con == null) {
+
+                // Establish the Connection
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "455445");
+            }
+        } catch (SQLException s) {
+            System.out.println("Connection failed.!!");
+        }
+        return con;
+    }
+}
+
+
+// Main Class.
+
+import java.sql.*;
+import java.util.Scanner;
+
+/**
+ *
+ * @author neeljoshi --- Student Management System ---
+ */
+public class Main {
+
+    static int roll;
+    static int rollno;
+    static String name;
+    static int age;
+    static String gender;
+    static String course;
+    static long mobile;
+
+    //Student Details Save Method
+    public static void add() {
+
+        try {
+            //Get Connection
+            Connection c = ConnectionProvider.getConnection();
+
+            //Student Data Input Statement
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter Student RollNo:= ");
+            rollno = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Enter Student Name:= ");
+            name = sc.nextLine();
+            System.out.println("Enter Student Age Total Year:= ");
+            age = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Enter Student Gender:= ");
+            gender = sc.nextLine();
+            System.out.println("Enter Student Course:= ");
+            course = sc.nextLine();
+            System.out.println("Enter Student Mobile Number:= ");
+            mobile = sc.nextLong();
+
+            //Data Insert Query
+            String i = "insert into student(rollno,name,age,gender,course,mobile) values(?,?,?,?,?,?)";
+            PreparedStatement ps = c.prepareStatement(i);
+            ps.setInt(1, rollno);
+            ps.setString(2, name);
+            ps.setInt(3, age);
+            ps.setString(4, gender);
+            ps.setString(5, course);
+            ps.setLong(6, mobile);
+            int rowsInserted = ps.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("One Student Data Insert Successfull.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    //Student Details Update Method
+    public static void update() {
+        try {
+            //Get Connection
+            Connection c = ConnectionProvider.getConnection();
+
+            //Student New Data Input Statement
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Student RollNo:= ");
+            rollno = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Change Name:= ");
+            name = sc.nextLine();
+            System.out.println("Change Age:= ");
+            age = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Change Gender:= ");
+            gender = sc.nextLine();
+            System.out.println("Change Course:= ");
+            course = sc.nextLine();
+            System.out.println("Change Mobile Number:= ");
+            mobile = sc.nextLong();
+
+            //Data Update Query
+            String u = "update student set name=?,age=?,gender=?,course=?,mobile=? where rollno=?";
+            PreparedStatement ps = c.prepareStatement(u);
+            ps.setString(1, name);
+            ps.setInt(2, age);
+            ps.setString(3, gender);
+            ps.setString(4, course);
+            ps.setLong(5, mobile);
+            ps.setInt(6, rollno);
+            int rowUpdate = ps.executeUpdate();
+            if (rowUpdate > 0) {
+                System.out.println("One Student Data Update Successfull.");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    //Student Delete Method
+    public static void delete() {
+        try {
+            //Get Connection
+            Connection c = ConnectionProvider.getConnection();
+
+            //Delete Student Rollno
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Delete Student RollNo:= ");
+            rollno = sc.nextInt();
+
+            //Student Delete Query
+            String d = "delete from student where rollno=?";
+            PreparedStatement ps = c.prepareStatement(d);
+            ps.setInt(1, rollno);
+            int rowDelete = ps.executeUpdate();
+            if (rowDelete > 0) {
+                System.out.println("One Student Delete Successfull.");
+            } else {
+                System.out.println(rollno + " RollNo Student Not Available.!!");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    //All Student Data Display
+    public static void display() {
+        try {
+            Connection c = ConnectionProvider.getConnection();
+
+            //display data
+            String s = "select * from student";
+            Statement stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery(s);
+
+            System.out.println("RollNo\t\tName\t\tAge\t\tGender\t\tCourse\t\tMobile");
+            System.out.println("----------------------------------------------------------------------------------------------");
+            while (rs.next()) {
+                rollno = rs.getInt(1);
+                name = rs.getString(2);
+                age = rs.getInt(3);
+                gender = rs.getString(4);
+                course = rs.getString(5);
+                mobile = rs.getLong(6);
+
+                System.out.println(rollno + "\t\t" + name + "\t\t" + age + "\t\t" + gender + "\t\t" + course + "\t\t" + mobile);
+            }
+        } catch (SQLException s) {
+            System.out.println("Data Display Error" + s.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        while (true) {
+
+            System.out.println("1 New Student");
+            System.out.println("2 Update Student");
+            System.out.println("3 Delete Student");
+            System.out.println("4 Show All Student");
+            System.out.println("5.exit");
+            System.out.print("Select The Choice:=");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    Main.add();
+                    break;
+                case 2:
+                    Main.update();
+                    break;
+                case 3:
+                    Main.delete();
+                    break;
+                case 4:
+                    Main.display();
+                    break;
+                case 5:
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid Choice.!!");
+            }
+        }
+    }
+}
