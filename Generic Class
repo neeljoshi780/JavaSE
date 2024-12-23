@@ -22,3 +22,4 @@ public class Generic {
         System.out.println(m1.get());
         System.out.println(m2.get());
     }
+}
