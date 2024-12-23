@@ -1,0 +1,15 @@
+// Generic Method.
+
+public class Generic{
+    public <E> void printArray(E temp[]){
+        for(int i=0;i<temp.length;i++){
+            System.out.println(temp[i]);
+        }
+    }
+    public static void main(String[] args) {
+        Generic g=new Generic();
+        String countries[]={"India","Japan","America"};
+        Integer numbers[]={10,20,30};
+        g.printArray(countries);
+        g.printArray(numbers);
+    }
