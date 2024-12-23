@@ -1,0 +1,24 @@
+// Generic Class.
+
+class MyData<G> {
+    G temp;
+
+    public void add(G temp) {
+        this.temp = temp;
+    }
+
+    public G get() {
+        return temp;
+    }
+}
+
+public class Generic {
+    public static void main(String[] args) {
+        MyData<Integer> m1 = new MyData<Integer>();
+        MyData<String> m2 = new MyData<String>();
+        m1.add(50);
+        m2.add("Neel");
+
+        System.out.println(m1.get());
+        System.out.println(m2.get());
+    }
