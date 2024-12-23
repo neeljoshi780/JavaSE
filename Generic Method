@@ -13,3 +13,4 @@ public class Generic{
         g.printArray(countries);
         g.printArray(numbers);
     }
+}
