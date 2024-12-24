@@ -1,0 +1,49 @@
+// ArrayList.
+// Best for frequent read operations.
+
+import java.util.ArrayList;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Kolkata");
+        list.add("Ahmedabad");
+        list.add("Surat");
+        list.add("Mumbai");
+        list.add("Delhi");
+        list.add("Ranchi");
+        System.out.println("List: " + list);
+
+        // Inserting at index 0
+        list.add(0, "Chennai");
+        System.out.println("After insertion: " + list);
+
+        // Removing element at index 3 and "Ranchi"
+        list.remove(3);
+        list.remove("Ranchi");
+        System.out.println("After removal: " + list);
+
+        // Get the third city at index 2
+        String city = list.get(2);
+        System.out.println("City at Index 2: " + city);
+
+        // Replace "Ahmedabad" with "Bengaluru"
+        list.set(2, "Bengaluru");
+        System.out.println("After updating index 1: " + list);
+
+        // Get the total number of cities
+        Integer totalCity = list.size();
+        System.out.println("Total Cities: " + totalCity);
+
+        // Check if an city exists in the list
+        boolean exists = list.contains("Delhi");
+        System.out.println("list contain 'Delhi'? " + exists);
+
+        // Remove all elements from the list
+        list.clear();
+        System.out.println("After clearing the list: " + list);
+
+        // Verify size after clearing
+        System.out.println("Size after clearing: " + list.size());
+    }
+}
