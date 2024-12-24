@@ -1,0 +1,29 @@
+// Vector.
+// Synchronized version of ArrayList.
+// Slower due to thread safety.
+
+import java.util.Vector;
+
+public class VectorExample {
+    public static void main(String[] args) {
+        Vector<Integer> luckynumber = new Vector<>();
+
+        luckynumber.add(45);
+        luckynumber.add(54);
+        luckynumber.add(780);
+
+        System.out.println("Vector: " + luckynumber);
+
+        luckynumber.add(2, 25); // Adding at index 2
+        System.out.println("After insertion: " + luckynumber);
+
+        luckynumber.remove(2); // Removing element at index 1
+        System.out.println("After removal: " + luckynumber);
+
+        // Returns the total number of elements the Vector can store
+        System.out.println("Capacity of Vector: " + luckynumber.capacity());
+
+        // Check Vector is Empty
+        System.out.println("Is Vector empty? " + luckynumber.isEmpty());
+    }
+}
