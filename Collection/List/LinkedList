@@ -10,7 +10,7 @@ public class LinkedListExample {
         list.add("Lion");
         list.add("Tiger");
         list.add("Elephant");
-
+        list.add(1, "Fox");
         System.out.println("LinkedList: " + list);
 
         list.addFirst("Zebra"); // Adding to the beginning
@@ -19,10 +19,20 @@ public class LinkedListExample {
 
         list.removeFirst(); // Removing the first element
         list.removeLast(); // Removing the last element
+        list.remove(1);
         System.out.println("After removals: " + list);
+
+        // Get the First Animal
+        System.out.println("First Animal in List: " + list.getFirst());
+
+        // Get the Last Animal
+        System.out.println("Last Animal in List: " + list.getLast());
 
         // Size of List
         Integer TotalAnimal = list.size();
         System.out.println("Total Animal is List: " + TotalAnimal);
+
+        // Check if Animal exists in the list
+        System.out.println("list contain 'Tiger'? " + list.contains("Tiger"));
     }
 }
