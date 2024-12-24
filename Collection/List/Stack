@@ -1,0 +1,26 @@
+// Subclass of Vector.
+// Implements LIFO (Last In First Out).
+// Useful in algorithms like recursion, undo/redo functionality, or expression evaluation.
+
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        Stack<String> color = new Stack<>();
+
+        color.push("Red");
+        color.push("Black");
+        color.push("Blue");
+
+        System.out.println("Stack: " + color);
+
+        String top = color.peek(); // Viewing the top element
+        System.out.println("Top element: " + top);
+
+        color.pop(); // Removing the top element
+        System.out.println("After pop: " + color);
+
+        // Check Stack is Empty
+        System.out.println("Is Vector empty? " + color.isEmpty());
+    }
+}
