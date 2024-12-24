@@ -1,0 +1,20 @@
+// Provides utility methods for working with arrays, like sorting, searching, and comparing arrays.
+
+import java.util.Arrays;
+
+public class ArraysExample {
+    public static void main(String[] args) {
+        int number[] = { 780, 54, 45 };
+
+        System.out.println("Before Sort Array");
+        for (int temp : number) {
+            System.out.print(temp + ",");
+        }
+
+        Arrays.sort(number);
+        System.out.println("\nAfter Sort Array");
+        for (int temp : number) {
+            System.out.print(temp + ",");
+        }
+    }
+}
