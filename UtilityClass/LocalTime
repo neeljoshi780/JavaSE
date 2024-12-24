@@ -1,0 +1,17 @@
+import java.time.LocalTime;
+
+public class LocalTimeExample {
+    public static void main(String[] args) {
+        // Getting the current time
+        LocalTime currentTime = LocalTime.now();
+        System.out.println("Current Time: " + currentTime);
+
+        // Adding hours to the time
+        LocalTime laterTime = currentTime.plusHours(2);
+        System.out.println("Time 2 hours later: " + laterTime);
+
+        // Subtracting minutes from the time
+        LocalTime earlierTime = currentTime.minusMinutes(15);
+        System.out.println("Time 15 minutes earlier: " + earlierTime);
+    }
+}
