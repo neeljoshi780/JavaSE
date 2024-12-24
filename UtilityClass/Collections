@@ -1,0 +1,18 @@
+// Provides static methods to operate on or return collections like lists, sets, and maps (e.g., sorting, shuffling).
+
+import java.util.Collections;
+import java.util.Vector;
+
+public class CollectionsExample {
+    public static void main(String[] args) {
+        Vector<Integer> number = new Vector<>();
+        number.add(780);
+        number.add(54);
+        number.add(45);
+
+        System.out.println("Before Sort Vector: " + number);
+
+        Collections.sort(number);
+        System.out.println("After Sort Vector: " + number);
+    }
+}
