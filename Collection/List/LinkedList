@@ -1,0 +1,28 @@
+// LinkedList.
+// Best for frequent insertions/deletions.
+
+import java.util.LinkedList;
+
+public class LinkedListExample {
+    public static void main(String[] args) {
+        LinkedList<String> list = new LinkedList<>();
+
+        list.add("Lion");
+        list.add("Tiger");
+        list.add("Elephant");
+
+        System.out.println("LinkedList: " + list);
+
+        list.addFirst("Zebra"); // Adding to the beginning
+        list.addLast("Kangaroo"); // Adding to the end
+        System.out.println("After additions: " + list);
+
+        list.removeFirst(); // Removing the first element
+        list.removeLast(); // Removing the last element
+        System.out.println("After removals: " + list);
+
+        // Size of List
+        Integer TotalAnimal = list.size();
+        System.out.println("Total Animal is List: " + TotalAnimal);
+    }
+}
