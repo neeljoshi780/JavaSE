@@ -1,7 +1,5 @@
 import java.sql.*;
 
-// Connection Provider Class.
-
 public class ConnectionProvider {
 
     private static Connection con;
@@ -10,15 +8,21 @@ public class ConnectionProvider {
         try {
             if (con == null) {
 
+                // Load MySQL JDBC driver
+                Class.forName("com.mysql.cj.jdbc.Driver");
+
                 // Establish the Connection
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/school", "root", "455445");
             }
-        } catch (SQLException s) {
-            System.out.println("Connection failed.!!");
+        } catch (ClassNotFoundException e) {
+            System.out.println("JDBC Driver not found.!!");
+        } catch (SQLException e) {
+            System.out.println("Connection failed.!!" + e.getMessage());
         }
         return con;
     }
 }
+
 
 
 // Main Class.
