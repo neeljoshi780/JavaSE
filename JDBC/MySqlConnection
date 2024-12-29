@@ -18,6 +18,7 @@ public class JavaApplication6 {
             } else {
                 System.out.println("Connection failed.!!");
             }
+            con.close();
         } catch (Exception e) {
             System.err.println("Error:" + e.getMessage());
         }
