@@ -28,6 +28,7 @@ public class JavaApplication6 {
                 psmt.execute();
 
                 System.out.println("The student record was deleted successfully.");
+                con.close();
             } else {
                 System.out.println("Connection failed.!!");
             }
