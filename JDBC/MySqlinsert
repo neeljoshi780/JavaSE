@@ -30,6 +30,7 @@ public class JavaApplication6 {
                 psmt.execute();
 
                 System.out.println("A new student was inserted successfully.");
+                con.close();
             } else {
                 System.out.println("Connection failed.!!");
             }
