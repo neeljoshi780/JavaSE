@@ -31,6 +31,7 @@ public class JavaApplication6 {
                 psmt.execute();
 
                 System.out.println("Student data updated successfully.");
+                con.close();
             } else {
                 System.out.println("Connection failed.!!");
             }
