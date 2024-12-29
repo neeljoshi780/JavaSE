@@ -35,6 +35,7 @@ public class JavaApplication6 {
 
                     System.out.println(id + "\t" + name + "\t\t" + dob + "\t" + mobile);
                 }
+                con.close();
             } else {
                 System.out.println("Connection failed.!!");
             }
