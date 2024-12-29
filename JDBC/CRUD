@@ -81,6 +81,7 @@ public class Main {
             if (rowsInserted > 0) {
                 System.out.println("One Student Data Insert Successfull.");
             }
+            c.close();
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -122,7 +123,7 @@ public class Main {
             if (rowUpdate > 0) {
                 System.out.println("One Student Data Update Successfull.");
             }
-
+            c.close();
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -149,6 +150,7 @@ public class Main {
             } else {
                 System.out.println(rollno + " RollNo Student Not Available.!!");
             }
+            c.close();
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -176,6 +178,7 @@ public class Main {
 
                 System.out.println(rollno + "\t\t" + name + "\t\t" + age + "\t\t" + gender + "\t\t" + course + "\t\t" + mobile);
             }
+            c.close();
         } catch (SQLException s) {
             System.out.println("Data Display Error" + s.getMessage());
         }
