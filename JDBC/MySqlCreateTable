@@ -24,6 +24,7 @@ public class JavaApplication6 {
                 // Execute the SQL statement to create the table
                 stmt.execute(createTable);
                 System.out.println("Student Table created successfully.");
+                con.close();
             } else {
                 System.out.println("Connection failed.!!");
             }
