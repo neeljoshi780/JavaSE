@@ -27,7 +27,7 @@ public class JavaApplication6 {
                 psmt.setLong(3, 8160062992L);
 
                 // Execute update
-                psmt.execute();
+                psmt.executeUpdate();
 
                 System.out.println("A new student was inserted successfully.");
                 con.close();
