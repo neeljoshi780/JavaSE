@@ -25,7 +25,7 @@ public class JavaApplication6 {
                 psmt.setInt(1, 1003);
 
                 // Execute update
-                psmt.execute();
+                psmt.executeUpdate();
 
                 System.out.println("The student record was deleted successfully.");
                 con.close();
