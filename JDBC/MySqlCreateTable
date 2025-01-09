@@ -22,7 +22,7 @@ public class JavaApplication6 {
                 stmt = con.createStatement();
 
                 // Execute the SQL statement to create the table
-                stmt.execute(createTable);
+                stmt.executeUpdate(createTable);
                 System.out.println("Student Table created successfully.");
                 con.close();
             } else {
