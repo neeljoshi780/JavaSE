@@ -28,7 +28,7 @@ public class JavaApplication6 {
                 psmt.setInt(4, 1003);
 
                 // Execute update
-                psmt.execute();
+                psmt.executeUpdate();
 
                 System.out.println("Student data updated successfully.");
                 con.close();
