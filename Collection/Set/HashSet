@@ -1,0 +1,42 @@
+// HashSet
+// unique values and fast operations add(), remove().
+
+import java.util.HashSet;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
+
+        // 1. Add elements
+        set.add("neel");
+        set.add("joshi");
+        set.add("palanpur");
+
+        // 2. Print Set
+        System.out.println("Set: " + set);
+
+        // 3. Check if contains
+        System.out.println("Contains neel? " + set.contains("neel"));
+
+        // 4. Remove an element
+        set.remove("palanpur");
+        System.out.println("After removing palanpur: " + set);
+
+        // 5. Size of set
+        System.out.println("Size: " + set.size());
+
+        // 6. Check if empty
+        System.out.println("Is empty? " + set.isEmpty());
+
+        for (String item : set) {
+            System.out.print(item + " ");
+        }
+
+        // 7. Add all from another set
+        HashSet<String> newSet = new HashSet<>();
+        newSet.add("Pineapple");
+        newSet.add("Apple");
+        set.addAll(newSet);
+        System.out.println("After addAll: " + set);
+    }
+}
