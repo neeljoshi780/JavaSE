@@ -1,5 +1,6 @@
 // HashSet
 // unique values and fast operations add(), remove().
+// No order (random).
 
 import java.util.HashSet;
 
