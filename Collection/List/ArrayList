@@ -1,4 +1,4 @@
-// ArrayList.
+// ArrayList
 // Best for frequent read operations.
 
 import java.util.ArrayList;
