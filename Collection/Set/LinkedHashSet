@@ -1,0 +1,30 @@
+// LinkedHashSet
+// Maintains insertion order.
+// unique values and Slightly slower.
+
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetExample{
+    public static void main(String[] args) {
+        LinkedHashSet<String> fruits = new LinkedHashSet<>();
+
+        // 1. Add elements
+        fruits.add("Apple");
+        fruits.add("Mango");
+        fruits.add("Banana");
+
+        // Print the set (insertion order is preserved)
+        System.out.println("LinkedHashSet: " + fruits);
+
+         // retainAll() - Keep only common elements (Intersection)
+         LinkedHashSet<String> common = new LinkedHashSet<>();
+         common.add("Apple");
+         common.add("Papaya");
+         fruits.retainAll(common);
+         System.out.println("After retainAll(): " + fruits);
+
+         for (String item : fruits) {
+            System.out.print(item + " ");
+        }
+    }
+}
