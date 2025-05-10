@@ -1,4 +1,4 @@
-// Subclass of Vector.
+// Subclass of Vector
 // Implements LIFO (Last In First Out).
 // Useful in algorithms like recursion, undo/redo functionality, or expression evaluation.
 
