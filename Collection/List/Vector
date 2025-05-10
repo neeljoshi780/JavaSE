@@ -1,4 +1,4 @@
-// Vector.
+// Vector
 // Synchronized version of ArrayList.
 // Slower due to thread safety.
 
