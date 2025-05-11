@@ -1,0 +1,17 @@
+// TreeMap
+// Sorted by keys.
+
+import java.util.TreeMap;
+
+public class TreeMapExample {
+    public static void main(String[] args) {
+        TreeMap<Integer,String> map = new TreeMap<>();
+
+        // Adding entries
+        map.put(105, "Java");
+        map.put(101, "C");
+        map.put(102, "Python");
+
+        System.out.println(map);
+    }
+}
