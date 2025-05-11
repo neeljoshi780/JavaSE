@@ -1,0 +1,17 @@
+// HashTable
+// Thread-safe.
+
+import java.util.Hashtable;
+
+public class HashTableExample {
+    public static void main(String[] args) {
+        Hashtable<Integer,String> map = new Hashtable<>();
+
+        // Adding entries
+        map.put(5, "Surat");
+        map.put(1, "Delhi");
+        map.put(2, "Ranchi");
+
+        System.out.println(map);
+    }
+}
