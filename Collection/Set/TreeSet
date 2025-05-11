@@ -1,0 +1,45 @@
+// TreeSet
+// Unique values and Sorted (Natural order).
+
+import java.util.TreeSet;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        TreeSet<Integer> ts = new TreeSet<>();
+
+        // add elements
+        ts.add(10);
+        ts.add(5);
+        ts.add(20);
+        ts.add(15);
+        System.out.println(ts);
+
+        // remove element
+        ts.remove(10);
+        System.out.println("After removing 10: " + ts);
+
+        // contains
+        System.out.println("Contains 15? " + ts.contains(15));
+
+        // size
+        System.out.println("Size: " + ts.size());
+
+        // isEmpty
+        System.out.println("Is Empty? " + ts.isEmpty());
+
+        // first and last
+        System.out.println("First: " + ts.first());
+        System.out.println("Last: " + ts.last());
+
+        // higher and lower
+        System.out.println("Higher than 15: " + ts.higher(15)); // 20
+        System.out.println("Lower than 15: " + ts.lower(15)); // 5
+
+        // ceiling and floor
+        System.out.println("Ceiling of 14: " + ts.ceiling(15)); // 15
+        System.out.println("Floor of 14: " + ts.floor(5)); // 5
+
+        ts.clear();
+        System.out.println(ts);
+    }
+}
