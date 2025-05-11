@@ -13,7 +13,7 @@ public class HashMapExample {
         map.put(2, "Gautam");
         map.put(3, "Jay");
 
-        // Updating value
+        // Overwrite value
         map.put(3, "Raj");
 
         // Get value by key
