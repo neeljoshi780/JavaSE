@@ -1,0 +1,24 @@
+// LinkedHashMap
+// It stores data in key-value pairs and Maintains insertion order.
+// Duplicate keys are not allowed, but values can be duplicated.
+
+import java.util.LinkedHashMap;
+
+public class LinkedHashMapExample {
+    public static void main(String[] args) {
+        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+
+        // Adding entries
+        map.put(101, "Java");
+        map.put(102, "Python");
+        map.put(103, ".Net");
+        System.out.println(map);
+
+        // Overwrite value
+        map.put(103, "Kotlin");
+
+        for (String item : map.values()) {
+            System.out.print(item + " ");
+        }
+    }
+}
