@@ -1,6 +1,6 @@
 // LinkedHashSet
 // Maintains insertion order.
-// unique values and Slightly slower.
+// Unique values and Slightly slower.
 
 import java.util.LinkedHashSet;
 
