@@ -1,6 +1,5 @@
 // LinkedHashMap
-// It stores data in key-value pairs and Maintains insertion order.
-// Duplicate keys are not allowed, but values can be duplicated.
+// Maintains insertion order.
 
 import java.util.LinkedHashMap;
 
