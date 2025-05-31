@@ -1,0 +1,22 @@
+import java.util.regex.Pattern;
+
+public class RegexDemo {
+    public static void main(String[] args) {
+        
+        // Fullname validation
+        String fullName = "JohnDoe";
+        String patternFullName="^[a-zA-Z]{0,9}$";
+
+        if(!Pattern.matches(patternFullName,fullName)){
+            System.out.println("Fullname must be 4 to 40 char.");
+        }
+
+        // Phone validation
+        String phone = "6876543210";
+        String patternPhone = "[6-9][0-9]{9}";
+
+        if(!Pattern.matches(patternPhone,phone)){
+            System.out.println("phone number must be 10 digit.");
+        }
+    }
+}
