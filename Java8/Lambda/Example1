@@ -1,0 +1,47 @@
+// Define an interface with a single abstract method
+@FunctionalInterface  // Ensures only one abstract method is allowed
+interface MyInter {
+    void sayHello();
+}
+
+// Another functional interface for demonstrating lambda with parameters
+@FunctionalInterface
+interface SumInter {
+    int sum(int a, int b);
+}
+
+public class LambdaExample {
+    public static void main(String[] args) {
+        System.out.println("Start...");
+
+        // 1st Way: Implement MyInter in a separate class (Not shown here)
+        // Example:
+        // class MyClass implements MyInter {
+        //     public void sayHello() {
+        //         System.out.println("Hello from MyClass Implementation");
+        //     }
+        // }
+        // MyInter obj = new MyClass();
+        // obj.sayHello();
+
+        // 2nd Way: Using Anonymous Class (without creating a separate class file)
+        MyInter m1 = new MyInter() {
+            @Override
+            public void sayHello() {
+                System.out.println("Hello World (Anonymous Class)");
+            }
+        };
+        m1.sayHello();
+
+        // 3rd Way: Using Lambda Expression 
+        // (Possible only because MyInter is a Functional Interface → has exactly 1 abstract method)
+        MyInter m2 = () -> {
+            System.out.println("Hello World (Lambda Expression)");
+        };
+        m2.sayHello();
+
+        // Using Lambda with parameters and return type
+        SumInter s1 = (a, b) -> a + b;  // concise lambda for sum
+        System.out.println("Sum of 10 and 20 = " + s1.sum(10, 20));
+    }
+}
