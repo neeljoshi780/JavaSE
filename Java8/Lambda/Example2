@@ -1,0 +1,25 @@
+public class LambdaRunnableExample {
+    public static void main(String[] args) {
+
+        // Creating a Runnable using Lambda Expression
+        Runnable task = () -> {
+            for (int i = 1; i <= 10; i++) {
+                System.out.println("Count: " + i);
+
+                try {
+                    // Pause for 1 second between prints
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    // Print error details if thread is interrupted
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        // Pass Runnable task to Thread object
+        Thread t = new Thread(task);
+
+        // Start the thread
+        t.start();
+    }
+}
