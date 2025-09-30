@@ -1,0 +1,62 @@
+/*
+  Stream API: filter() vs map()
+
+  filter() → used for selection  
+     - Keeps only elements that satisfy a condition  
+     - Does not change element values  
+     - Output size can be smaller or equal to input size  
+
+  map() → used for transformation  
+     - Converts each element into another form  
+     - Changes element values  
+     - Output size is always the same as input size  
+
+  Example:
+     numbers.stream().filter(n -> n % 2 == 0)   // keeps even numbers
+     numbers.stream().map(n -> n * n)           // squares each number
+*/
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamApiExample {
+
+    public static void main(String[] args) {
+        // Prepare input data (demonstrative sample list)
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(10);
+        numbers.add(15);
+        numbers.add(20);
+        numbers.add(100);
+
+        // Imperative approach (no Stream API)
+        List<Integer> evenNumbersImperative = new ArrayList<>();
+        for (Integer n : numbers) {
+            if (n % 2 == 0) {
+                evenNumbersImperative.add(n);
+            }
+        }
+        System.out.println("Even numbers (imperative): " + evenNumbersImperative);
+
+        // Declarative approach using Streams (more concise & expressive)
+        Stream<Integer> stream = numbers.stream();
+        List<Integer> evenNumbersStream = stream.filter(i -> i % 2 == 0).collect(Collectors.toList());
+        System.out.println("Even numbers (stream): " + evenNumbersStream);
+
+        // One-line Stream example to get odd numbers
+        List<Integer> oddNumbers = numbers.stream()
+                .filter(n -> n % 2 != 0)
+                .collect(Collectors.toList());
+        System.out.println("Odd numbers (stream one-liner): " + oddNumbers);
+
+        // Use map() to transform numbers → square of numbers
+        List<Integer> squaredNumbers = numbers.stream()
+                .map(n -> n * n) // transformation: n → n squared
+                .collect(Collectors.toList());
+        System.out.println("Squared numbers (using map): " + squaredNumbers);
+    }
+}
