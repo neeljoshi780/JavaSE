@@ -1,0 +1,55 @@
+// functional interface for method reference
+@FunctionalInterface
+interface WorkInter {
+    void doTask();
+}
+
+// Another functional interface for constructor reference
+@FunctionalInterface
+interface MessageCreator {
+    Message create(String msg);
+}
+
+// A helper class with static and instance methods
+class Stuff {
+
+    // Static method
+    public static void doStuffStatic() {
+        System.out.println("Doing stuff using STATIC method reference...");
+    }
+
+    // Instance method
+    public void doStuffInstance() {
+        System.out.println("Doing stuff using INSTANCE method reference...");
+    }
+}
+
+// Class for Constructor Reference example
+class Message {
+    public Message(String msg) {
+        System.out.println("Message object created: " + msg);
+    }
+}
+
+public class RefDemo {
+
+    public static void main(String[] args) {
+        System.out.println("=== Learning Method References in Java 8 ===");
+
+        // *********** 1. Static Method Reference ***********
+        // Syntax: ClassName::staticMethodName
+        WorkInter work1 = Stuff::doStuffStatic;
+        work1.doTask();
+
+        // *********** 2. Instance Method Reference ***********
+        // Syntax: objectRef::instanceMethodName
+        Stuff stuff = new Stuff();
+        WorkInter work2 = stuff::doStuffInstance;
+        work2.doTask();
+
+        // *********** 3. Constructor Reference ***********
+        // Syntax: ClassName::new
+        MessageCreator creator = Message::new;
+        creator.create("Hello from Constructor Reference!");
+    }
+}
