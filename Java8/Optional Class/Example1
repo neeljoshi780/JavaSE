@@ -1,0 +1,39 @@
+import java.util.Optional;
+
+public class OptionalExample {
+    public static void main(String[] args) {
+
+        // 1. Creating Optionals
+        Optional<String> opt1 = Optional.of("Java 8"); // Non-null value
+        Optional<String> opt2 = Optional.ofNullable(null); // Can be null
+        Optional<String> opt3 = Optional.empty(); // Empty Optional
+
+        // 2. Checking value presence
+        System.out.println("opt1 has value? " + opt1.isPresent()); // true
+        System.out.println("opt2 has value? " + opt2.isPresent()); // false
+        System.out.println("opt3 has value? " + opt3.isPresent()); // false
+
+        // 3. Using ifPresent()
+        opt1.ifPresent(val -> System.out.println("Value inside opt1: " + val));
+
+        // 4. Using orElse() -> Default value if null
+        String result1 = opt2.orElse("Default Value");
+        System.out.println("opt2 value (orElse): " + result1);
+
+        // 5. Using orElseGet() -> Supplier provides default
+        String result2 = opt3.orElseGet(() -> "Generated Default");
+        System.out.println("opt3 value (orElseGet): " + result2);
+
+        // 6. Using orElseThrow() -> Throws exception if value not present
+        try {
+            String val = opt2.orElseThrow(() -> new IllegalArgumentException("Value not found!"));
+            System.out.println(val);
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+
+        // 7. Using map() to transform value
+        Optional<String> upper = opt1.map(String::toUpperCase);
+        upper.ifPresent(val -> System.out.println("Transformed value: " + val));
+    }
+}
